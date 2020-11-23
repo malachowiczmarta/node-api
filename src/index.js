@@ -25,11 +25,15 @@ app.get('/', (req, res) => {
     res.send("hello")
 });
 
+app.get('./ping', (req, res) => {
+    res.status(201).json({status: 'ok'});
+});
+
 
 app.post('/', (req, res) => {
     console.log(JSON.stringify(req.body, null, 2));
     res.json({ok: true});
-})
+});
 
 
 app.listen(PORT, (err) => {

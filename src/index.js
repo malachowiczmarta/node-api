@@ -16,7 +16,9 @@ const PORT = 3000;
 
 //express korzystał z tego modułu http
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
+app.use(bodyParser.json());
 
 //GET 
 app.get('/', (req, res) => {
@@ -24,6 +26,17 @@ app.get('/', (req, res) => {
 });
 
 
+app.post('/', (req, res) => {
+    console.log(JSON.stringify(req.body, null, 2));
+    res.json({ok: true});
+})
 
 
-app.listen(PORT);
+app.listen(PORT, (err) => {
+    if (err) {
+        console.log('Error');
+        throw err;
+    } else {
+        console.log(`Node server is running on port ${PORT}`);
+    }
+});

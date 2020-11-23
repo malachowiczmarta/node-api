@@ -9,6 +9,6 @@ http.createServer(function(request, response) {
       'Content-Type': 'application/json'  
     });
     response.end(JSON.stringify(responseData));
-});
+}).listen(PORT);
 
-console.log()
+console.log(`Node server is running on port ${PORT}`);
